@@ -1,0 +1,5 @@
+CREATE DATABASE sa4;
+
+USE sa4;
+
+SELECT * FROM biblioteca;
