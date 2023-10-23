@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Catálogo de Livros</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-	crossorigin="anonymous">
+	<meta charset="UTF-8">
+	<title>Catálogo de Livros</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
+
 <body>
-	<h1>Cadastro de Livros</h1>
-	<a href="/livros">Biblioteca</a>
-	<a href="/livros/adicionar">Adicionar Livro</a>
-	<hr>
-	<h1>Livros cadastrados</h1>
-	<table>
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Titulo</th>
-				<th>Autor</th>
-				<th>ISBN</th>
-				<th>Editora</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="biblioteca:${biblioteca}">
-				<td th:text=${biblioteca.id}>Id</td>
-				<td th:text=${biblioteca.titulo}>Titulo</td>
-				<td th:text=${biblioteca.autor}>Autor</td>
-				<td th:text=${biblioteca.isbn}>ISBN</td>
-				<td th:text=${biblioteca.editora}>Editora</td>
-			<td>
-				<a th:href="@{biblioteca/{id}(id=${biblioteca.id})}">Apagar</a>
-				<a th:href="@{biblioteca/editar/{id}(id=${biblioteca.id})}">Editar</a>
-			</td>
-			</tr>
-		</tbody>
-	</table>
-		<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-		crossorigin="anonymous"></script>
+	<div class="container">
+		<h1>Biblioteca</h1>
+			<a type="button" class="btn btn-outline-primary" role="search" href="/livros/adicionar">Adicionar Livro</a>
+		<hr>
+		<h1>Livros cadastrados</h1>
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Titulo</th>
+					<th>Autor</th>
+					<th>ISBN</th>
+					<th>Editora</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="biblioteca:${biblioteca}">
+					<td th:text=${biblioteca.id}>Id</td>
+					<td th:text=${biblioteca.titulo}>Titulo</td>
+					<td th:text=${biblioteca.autor}>Autor</td>
+					<td th:text=${biblioteca.isbn}>ISBN</td>
+					<td th:text=${biblioteca.editora}>Editora</td>
+					<td>
+							<a type="button" class="btn btn-outline-danger" th:href="@{biblioteca/{id}(id=${biblioteca.id})}">Apagar</a>
+							<a type="button" class="btn btn-outline-warning" th:href="@{biblioteca/editar/{id}(id=${biblioteca.id})}">Editar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+			crossorigin="anonymous"></script>
 </body>
+
 </html>

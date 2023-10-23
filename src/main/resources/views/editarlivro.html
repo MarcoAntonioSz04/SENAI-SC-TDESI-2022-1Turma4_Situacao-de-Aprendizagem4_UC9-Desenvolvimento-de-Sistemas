@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Edição de Livro</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-	crossorigin="anonymous">
+	<meta charset="UTF-8">
+	<title>Edição de Livro</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
-<body>
-	<h1>Editando Livro</h1>
-	<form th:action="@{/biblioteca/{id}(id=${biblioteca.id})}" th:object="${biblioteca}" method="POST">
-		<label>Titulo</label>
-		<input type="text" name="titulo" th:field="*{titulo}" required><br>
-		<label>Autor</label>
-		<input type="text" name="autor" th:field="*{autor}" required><br>
-		<label>ISBN</label>
-		<input type="text" name="isbn" th:field="*{isbn}" required><br>
-		<label>Editora</label>
-		<input type="text" name="editora" th:field="*{editora}" required><br>
-		<input type="submit" value="Atualizar">
-	</form>
-		<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+	<div class="container">
+		<h1>Editando Livro</h1>
+		<hr>
+		<form class="row g-3 needs-validation was-validated" th:action="@{/biblioteca/{id}(id=${biblioteca.id})}"
+			th:object="${biblioteca}" method="POST">
+			<div class="mb-3">
+				<label for="formGroupExampleInput" class="form-label">Titulo</label>
+				<input type="text" name="titulo" class="form-control" id="validationTooltip01"
+					placeholder="Titulo do Livro" required th:field="*{titulo}">
+			</div>
+			<div class="mb-3">
+				<label for="formGroupExampleInput" class="form-label">Autor</label>
+				<input type="text" name="autor" class="form-control" id="validationTooltip01"
+					placeholder="Nome do Autor" required="" th:field="*{autor}">
+			</div>
+			<div class="mb-3">
+				<label for="formGroupExampleInput" class="form-label">ISBN</label>
+				<input type="text" name="isbn" class="form-control" id="validationTooltip01"
+					placeholder="Numero ISBN" required="" th:field="*{isbn}">
+			</div>
+			<div class="mb-3">
+				<label for="formGroupExampleInput" class="form-label">Editora</label>
+				<input type="text" name="editora" class="form-control" id="validationTooltip01"
+					placeholder="Nome da Editora" required="" th:field="*{editora}">
+			</div>
+			<input type="submit" class="btn btn-outline-primary" value="Atualizar">
+		</form>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 		crossorigin="anonymous"></script>
 </body>
+
 </html>
